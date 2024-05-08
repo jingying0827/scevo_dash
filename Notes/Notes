@@ -1,0 +1,40 @@
+1) The scevo build script accepts a few options :
+
+    --no-renv     : build without using renv (doesn't currently work ... )
+    --dont-deploy : dont actualy deploy the packages to a docker yet.
+
+2) rgdal is not in cran any more, but can be fetched from :
+       https://packagemanager.posit.co/cran/2023-04-20/
+   using
+       install.packages("rgdal", repos="https://packagemanager.posit.co/cran/2023-04-20/")
+
+3) Interesting observation.  Often the build with renv fails because the package "foreign"
+   is not found, even though it was explicitly added in the build_dash_renv.rs file.
+   Usually just running the script again resolves the issue.
+
+4) posit.co is the default location for packages used by rocker/r-ver - this may explain 
+   point 3 above in that at least one package failed when trying to fetch from there, but it 
+   is curious that it then works the second time.
+
+5) using rocker/r-ver:4.3.2 in the fails with "unable to translate '...' to a wide string"
+   This, it turns out is the newer version of R :
+
+      R 4.3.0 changelog says: "Regular expression functions now check more thoroughly
+      whether their inputs are valid strings (in their encoding, e.g. in UTF-8)."
+
+   see:
+
+      https://stackoverflow.com/questions/76680882/unable-to-translate-to-a-wide-string
+
+6) if you are using this in shinyproxy an example config is included
+
+7) Changing shinyproxy config ( sudo vi /etc/shinyproxy/application.yml ) will
+   require a restart of shinyproxy server :
+
+      sudo service shinyproxy restart
+
+   and then there is a significant delay before it becomes usable.  Check
+   using :
+
+      sudo service shinyproxy status
+

@@ -1,0 +1,11 @@
+scevo_*.tar.gz
+scevo.tar
+scevo_base.tar
+deploy*
+.R*
+renv
+renv.lock
+*.tar.gz
+Dockerfile
+.dockerignore
+*log
