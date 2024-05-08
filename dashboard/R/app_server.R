@@ -508,7 +508,9 @@ app_server <- function( input, output, session ) {
  ##### WEATHER - ABOUT ####
       
       output$weatherAbout <- renderPrint({
-        "Weather data were sourced from Bureau of Meteorology (BOM) and Department of Primary Industries and Regional Development (DPIRD) and are not quality-checked."
+        "Data for the Melville Water (9091), Jandakot (9172), Rottnest Island (9193), Perth Airport (9021) and Metro (9225), Ocean Reef (9214), Swanbourne (9215) and Garden Island (9256) weather stations is obtained from the Bureau of Meteorology: http://www.bom.gov.au/ 
+         Data for the South Perth weather station is obtained from Department of Primary Industries and Regional Development (DPIRD): https://www.agric.wa.gov.au/weatherwebsite 
+         Data for the Guildford (509619) and Cannington (509686) climate stations is provided by Department of Water and Environmental Regulation (DWER), with funding provided by DBCA: https://kumina.water.wa.gov.au/waterinformation/WIR/Reports/Publish/509619/so1.htm."
       })   
       
 #### HYDRO #### 
